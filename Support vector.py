@@ -20,9 +20,13 @@ from sklearn.preprocessing import StandardScaler
 data = pd.read_csv("Electric_cars_dataset.csv")
 description = data.describe()
 
-
-for columns in data.columns:
-    print(data.columns.unique())
+columns = ['ID', 'VIN (1-10)', 'County', 'City', 'State', 'ZIP Code', 'Model Year',
+   'Make', 'Model', 'Electric Vehicle Type',
+   'Clean Alternative Fuel Vehicle (CAFV) Eligibility', 'Electric Range',
+   'Base MSRP', 'Legislative District', 'DOL Vehicle ID',
+   'Vehicle Location', 'Electric Utility', 'Expected Price ($1k)']
+for columns in data[columns]:
+    print("unique: ",data[columns].unique())
 
 data["Expected Price ($1k)"] = data["Expected Price ($1k)"].replace({"N/":np.nan})
 
